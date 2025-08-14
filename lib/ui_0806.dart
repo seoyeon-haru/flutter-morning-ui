@@ -61,11 +61,97 @@ class Home0806 extends StatelessWidget {
                   },
                 ),
               ),
-              Expanded(child: Container(height: 50, color: Colors.lightGreen)),
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.all(20),
+                  children: [
+                    todoList(
+                        'Wakeup', '7:00 AM', 'Early wakeup from bed and fresh'),
+                    SizedBox(height: 25),
+                    todoList(
+                        'Morning Excersise', '8:00 AM', '4 types of exercise'),
+                    SizedBox(height: 25),
+                    todoList('Meeting', '9:00 AM',
+                        'Zoom call, Discuss team task for the day'),
+                    SizedBox(height: 25),
+                    todoList('Breakfase', '10:00 AM',
+                        'Morning breakfase with bread, banana egg bowel and tea'),
+                  ],
+                ),
+              ),
               //
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget todoList(String todo, String time, String sen) {
+    return IntrinsicHeight(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Container(
+                width: 10,
+                height: 10,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.blue, width: 2),
+                ),
+              ),
+              SizedBox(height: 5),
+              //세로줄
+              Expanded(
+                child: Container(
+                  width: 2,
+                  color: Colors.blue,
+                ),
+              )
+            ],
+          ),
+          SizedBox(width: 30),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            width: 270,
+            constraints: const BoxConstraints(minHeight: 80),
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      todo,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
+                    Text(
+                      time,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Text(
+                  sen,
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
