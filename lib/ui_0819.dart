@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Home0819 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double radius = 30;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -13,10 +14,10 @@ class Home0819 extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 20),
             color: Colors.green[100],
             child: CustomPaint(
-              painter: MyPainter(),
+              painter: MyPainter(radius),
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 50),
+                  padding:  EdgeInsets.only(left: radius),
                   child: Text('안녕하세요'),
                 ),
               ),
@@ -29,6 +30,8 @@ class Home0819 extends StatelessWidget {
 }
 
 class MyPainter extends CustomPainter {
+  MyPainter(this.radius);
+  double radius;
   /// 직접 뭔가 그릴 때
   @override
   void paint(Canvas canvas, Size size) {
@@ -63,7 +66,7 @@ class MyPainter extends CustomPainter {
     // 선 둥글게 긋기
     final path = Path();
     // 9개의 숫자를 일일히 바꿔주지 않고 변수 하나만 수정해서 사용하고 싶을 때
-    double radius = 30;
+    // double radius = 30;
     // 그리는 점을 이동 => 그림 그릴 때, 그리기 전 손을 이동하는 것과 같은 행동
     path.moveTo(0, 0);
     path.lineTo(maxX - radius, 0);
