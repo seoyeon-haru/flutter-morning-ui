@@ -3,6 +3,9 @@
         android:label="flutter_morning_ui"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCUs2DQg0Arp2UskgJ5j8V2Nvd1NSe8VSU"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
